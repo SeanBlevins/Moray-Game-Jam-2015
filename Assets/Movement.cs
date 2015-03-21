@@ -20,13 +20,13 @@ public class Movement : MonoBehaviour {
 		if (IsGrounded ()) {
 			jump = 0;
 			jump = Input.GetAxis (AInput) * 1.75f;
-
 		} else if (IsBelowPlatform ()) {
 			jump = 0 - 0.09f;
 
 		}// else if (IsToLeftOfPlatform () || IsToRightOfPlatform ()) {
 			//direction = 0;
 		//}
+
 		else jump = jump - 0.09f;
 
 		transform.Translate (direction * speed * Time.deltaTime, jump * speed * Time.deltaTime, 0);
@@ -41,11 +41,13 @@ public class Movement : MonoBehaviour {
 		RaycastHit hit;
 		Ray ray = new Ray(transform.position, transform.FindChild("GroundCheck").transform.localPosition);
 		//print (transform.FindChild ("GroundCheck").transform.position);
+
 		Debug.DrawLine (transform.position, transform.FindChild("GroundCheck").transform.position);
 		if (Physics.Raycast (ray, out hit,-transform.FindChild("GroundCheck").transform.localPosition.y,9))
 		{
 			//print (hit.transform.name);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
+
 			{
 				return true;
 			}
