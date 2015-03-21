@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour {
 		RaycastHit hit;
 		Ray ray = new Ray(transform.position, transform.FindChild("GroundCheck").transform.localPosition);
 		//print (transform.FindChild ("GroundCheck").transform.position);
-		Debug.DrawRay (transform.position, transform.FindChild("GroundCheck").transform.localPosition);
+		//Debug.DrawRay (transform.position, transform.FindChild("GroundCheck").transform.localPosition);
 		if (Physics.Raycast (ray, out hit,-transform.FindChild("GroundCheck").transform.localPosition.y))
 		{
 			//print(hit.transform.name);

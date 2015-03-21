@@ -11,6 +11,7 @@ public class AreaOfInfluence : MonoBehaviour {
 
     List<platform> platforms = new List<platform>();
     List<character> linkedCharacters = new List<character>();
+    public LayerMask mask;
 
 	// Use this for initialization
 	void Start () {
@@ -47,26 +48,37 @@ public class AreaOfInfluence : MonoBehaviour {
 
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
-            Ray ray = new Ray(transform.position, colliderInfo.transform.position - transform.position);
-            float distance = Vector3.Distance(transform.position, colliderInfo.transform.position);
-            if (Physics.Raycast(ray, Vector3.Distance(transform.position, colliderInfo.transform.position)))
+            
+            Collider thisParent = transform.parent.GetComponent<Collider>();
+            Collider thatParent = colliderInfo.transform.parent.GetComponent<Collider>();
+            
+            Ray ray = new Ray(thisParent.transform.position,
+                thatParent.transform.position - thisParent.transform.position);
+            float distance = Vector3.Distance(thisParent.transform.position, thatParent.transform.position);
+            Debug.DrawRay(ray.origin, ray.direction);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
             {
                 //Combine colors
-                GM.characters.Add(GetComponentInParent<character>());
-                GM.colors.Add(curColor);
-                GM.updateCharacters();
-                GM.addToGroup(GetComponentInParent<character>());
+                if (hit.collider.tag == "Player")
+                {
+                    GM.characters.Add(GetComponentInParent<character>());
+                    GM.colors.Add(curColor);
+                    GM.updateCharacters();
+                    GM.addToGroup(GetComponentInParent<character>());
+
+                    //Combine colors
+                    linkedCharacters.Add(colliderInfo.GetComponent<character>());
+                    if (!GM.characters.Contains(GetComponentInParent<character>()))
+                    {
+                        print(baseColor);
+                        GM.characters.Add(GetComponentInParent<character>());
+                        GM.colors.Add(baseColor);
+                        GM.updateCharacters();
+                    }
+                }
             }
-            //Combine colors
-            linkedCharacters.Add(colliderInfo.GetComponent<character>());
-            if (!GM.characters.Contains(GetComponentInParent<character>()))
-            {
-                print(baseColor);
-                GM.characters.Add(GetComponentInParent<character>());
-                GM.colors.Add(baseColor);
-                GM.updateCharacters();
-            }
-            
+
             //GM.addToGroup(GetComponentInParent<character>());
         }
 
