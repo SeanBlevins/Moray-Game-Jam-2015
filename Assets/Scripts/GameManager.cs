@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 	//public GameState gameState { get; private set; }
     protected GameManager() { }
 
-    public ArrayList characters = new ArrayList();
+    public List<character> characters = new List<character>();
     //ArrayList colors = new ArrayList();
     public List<Color> colors = new List<Color>();
     Color groupColor;
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
         ch.curColor = ch.baseColor;
         ch.updateColor();
 
-        print("Remove");
+        print("Remove: " + ch.baseColor);
         characters.Remove(ch);
         colors.Remove(ch.baseColor);
         updateCharacters();
@@ -87,7 +87,19 @@ public class GameManager : MonoBehaviour {
         //print("Char Count     " + characters.Count);
         foreach (var color in colors)
         {
-            //print("Color     " + color);
+            //print(color);
+            if (color.Equals(Color.yellow))
+            {
+                //print("Yellow");
+            }
+            else if (color.Equals(Color.blue))
+            {
+                //print("Blue");
+            }
+            else if (color.Equals(Color.red))
+            {
+                //print("Red");
+            }
         }
         if(characters.Count == 3)
         {
@@ -97,13 +109,13 @@ public class GameManager : MonoBehaviour {
         {
             if(colors.Contains(Color.red) && colors.Contains(Color.blue))
             {
-                //Purple
-                groupColor = Color.magenta;
+                //Purple - new Color(0.7f, 0f, 1f, 1f);
+                groupColor = new Color(0.7f, 0f, 1f, 1f);
             }
             else if (colors.Contains(Color.red) && colors.Contains(Color.yellow))
             {
-                //Orange
-                groupColor = Color.cyan;
+                //Orange - new Color(1f, 0.65f, 0f, 1f);
+                groupColor = new Color(1f, 0.65f, 0f, 1f);
             }
             else
             {
@@ -113,9 +125,8 @@ public class GameManager : MonoBehaviour {
 
         }
 
-        foreach (var item in characters)
-        {
-            character character = (character)item;
+        foreach (var character in characters)
+        {            
             character.curColor = groupColor;
             character.updateColor();
         }
