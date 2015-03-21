@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class platform : MonoBehaviour {
 
@@ -14,10 +15,12 @@ public class platform : MonoBehaviour {
         WHITE
     }
 
-    bool active = false;    
+    public bool active = false;    
     public Color activateColor;
 
     public activateColorEnum activateColorEn;
+
+    public List<character> characters = new List<character>();
 
 	// Use this for initialization
 	void Start () {
@@ -49,32 +52,47 @@ public class platform : MonoBehaviour {
                 break;
         }
 
+        GetComponent<Renderer>().material.color = activateColor;
         deactivatePlatform();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (active)
+        {
+            
+        }
+        else
+        {
+
+        }
 	
 	}
 
     public void activatePlatform(Color col)
     {
+        
         if (col.Equals(activateColor))
-        {            
+        {
+            //print("ACTIVATE: " + col);
             active = true;
             GetComponent<BoxCollider>().enabled = true;
-            GetComponent<Renderer>().material.color = Color.white;
-            Color trans = new Color();
-            trans = GetComponent<Renderer>().material.color;
-            trans.a = 0.25f;
-            GetComponent<Renderer>().material.color = trans;
+            GetComponent<Renderer>().material.color = activateColor;
+            
+            
         }
         else
         {
+            //print("DEACTIVATE: " + col);
             active = false;
             GetComponent<BoxCollider>().enabled = false;
-            GetComponent<Renderer>().material.color = activateColor;
+            Color trans = new Color();
+            trans = GetComponent<Renderer>().material.color;
+            trans.a = 0.25f;
+
+            GetComponent<Renderer>().material.color = trans;
         }
     }
 
@@ -82,6 +100,26 @@ public class platform : MonoBehaviour {
     {       
         active = false;
         GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Renderer>().material.color = activateColor;
+        Color trans = new Color();
+        trans = GetComponent<Renderer>().material.color;
+        trans.a = 0.25f;
+
+        GetComponent<Renderer>().material.color = trans;
+    }
+
+    public void checkConnections()
+    {
+        active = false;
+        deactivatePlatform();
+        foreach (var character in characters)
+        {
+            //print(character);
+            if (character.curColor == activateColor)
+            {
+                active = true;
+                activatePlatform(character.curColor);
+                break;
+            }
+        }
     }
 }
