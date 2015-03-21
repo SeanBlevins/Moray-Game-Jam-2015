@@ -9,18 +9,13 @@ public class AreaOfInfluence : MonoBehaviour {
     public Color baseColor;
     public Color curColor;
 
-    List<platform> platforms = new List<platform>();
-    List<character> linkedCharacters = new List<character>();
+    public List<platform> platforms = new List<platform>();
+    public List<character> linkedCharacters = new List<character>();
 
 	// Use this for initialization
 	void Start () {
 
         GM = GameManager.Instance;
-
-        //baseColor = GetComponentInParent<character>().baseColor;
-        //curColor = baseColor;
-
-        //<SpriteRenderer>().color = curColor;
 	}
 	
 	// Update is called once per frame
@@ -40,7 +35,11 @@ public class AreaOfInfluence : MonoBehaviour {
     {
         if (colliderInfo.GetComponent<Collider>().tag == "PlatformTrigger")
         {
-            colliderInfo.GetComponentInParent<platform>().activatePlatform(curColor);
+            colliderInfo.GetComponentInParent<platform>().activatePlatform(curColor);            
+
+            colliderInfo.GetComponentInParent<platform>().characters.Add(GetComponentInParent<character>());
+
+            colliderInfo.GetComponentInParent<platform>().checkConnections();
 
             platforms.Add(colliderInfo.GetComponentInParent<platform>());
         }
@@ -51,22 +50,10 @@ public class AreaOfInfluence : MonoBehaviour {
             linkedCharacters.Add(colliderInfo.GetComponent<character>());
             if (!GM.characters.Contains(GetComponentInParent<character>()))
             {
-                print(baseColor);
                 GM.characters.Add(GetComponentInParent<character>());
                 GM.colors.Add(baseColor);
                 GM.updateCharacters();
             }
-            
-            //GM.addToGroup(GetComponentInParent<character>());
-        }
-
-    }
-
-    void OnTriggerStay(Collider colliderInfo)
-    {
-        if (colliderInfo.GetComponent<Collider>().tag == "Platform")
-        {
-            //print(gameObject.name + " and " + colliderInfo.GetComponent<Collider>().name + " are still colliding");
         }
 
     }
@@ -75,44 +62,41 @@ public class AreaOfInfluence : MonoBehaviour {
     {
         if (colliderInfo.GetComponent<Collider>().tag == "PlatformTrigger")
         {
-            print(gameObject.name + " and " + colliderInfo.GetComponent<Collider>().name + " are no longer colliding");
-            colliderInfo.GetComponentInParent<platform>().deactivatePlatform();
-            platforms.Remove(colliderInfo.GetComponentInParent<platform>());
+            colliderInfo.GetComponentInParent<platform>().characters.Remove(GetComponentInParent<character>());
 
-            //curPlatform = null;
+            colliderInfo.GetComponentInParent<platform>().checkConnections();
+
+            platforms.Remove(colliderInfo.GetComponentInParent<platform>());
         }
 
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
-            print("Break link");
+            //print("Break link");
             
             linkedCharacters.Remove(colliderInfo.GetComponent<character>());
 
             if (linkedCharacters.Count == 0)
             {
-                print("Remove from group");
                 GM.removeFromGroup(GetComponentInParent<character>());
                 
             }
-            //GM.characters.Remove(GetComponentInParent<character>());
-            //GM.colors.Remove(curColor);
-            //GM.updateCharacters();
-            //GM.addToGroup(GetComponentInParent<character>());
         }
     }
 
     public void changeColor(Color newColor)
-    {
+    {       
+        
         if (!newColor.Equals(curColor))
-        {
-            //print("list");
+        {            
             curColor = newColor;
             GetComponent<SpriteRenderer>().color = curColor;
 
             foreach (var platform in platforms)
             {
-                platform.activatePlatform(curColor);
+                //platform.activatePlatform(curColor);
+                platform.checkConnections();
             }
         }
+        //print(" ");
     }
 }

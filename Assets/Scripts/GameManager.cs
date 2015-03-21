@@ -72,19 +72,22 @@ public class GameManager : MonoBehaviour {
 
     public void removeFromGroup(character ch)
     {
-        ch.curColor = ch.baseColor;
-        ch.updateColor();
+        
 
-        print("Remove: " + ch.baseColor);
+        //print("Remove char: " + ch);
+        //print("Remove color: " + ch.baseColorEn);
         characters.Remove(ch);
         colors.Remove(ch.baseColor);
         updateCharacters();
+
+        ch.curColor = ch.baseColor;
+        ch.updateColor();
     }
 
     public void updateCharacters()
     {
-        //print("Col Count      " + colors.Count);
-        //print("Char Count     " + characters.Count);
+        print("Col Count      " + colors.Count);
+        print("Char Count     " + characters.Count);
         foreach (var color in colors)
         {
             //print(color);
