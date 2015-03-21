@@ -8,6 +8,7 @@ public class character : MonoBehaviour {
     bool grounded = false;
     public Color baseColor;
     public Color curColor;
+    public int PlayerNum;
     
 
 	// Use this for initialization
@@ -63,4 +64,5 @@ public class character : MonoBehaviour {
         GetComponent<Renderer>().material.color = curColor;
         GetComponentInChildren<AreaOfInfluence>().changeColor(curColor);
     }
+
 }

@@ -38,11 +38,16 @@ public class AreaOfInfluence : MonoBehaviour {
 
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
-            //Combine colors
-            GM.characters.Add(GetComponentInParent<character>());
-            GM.colors.Add(curColor);
-            GM.updateCharacters();
-            //GM.addToGroup(GetComponentInParent<character>());
+            Ray ray = new Ray(transform.position, colliderInfo.transform.position - transform.position);
+            float distance = Vector3.Distance(transform.position, colliderInfo.transform.position);
+            if (Physics.Raycast(ray, Vector3.Distance(transform.position, colliderInfo.transform.position)))
+            {
+                //Combine colors
+                GM.characters.Add(GetComponentInParent<character>());
+                GM.colors.Add(curColor);
+                GM.updateCharacters();
+                GM.addToGroup(GetComponentInParent<character>());
+            }
         }
 
     }
