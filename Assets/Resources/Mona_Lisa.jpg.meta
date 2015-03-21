@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: 4b63888940198aa40a755d8208fad46e
+timeCreated: 1426899530
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Mona_Lisa_0
+    21300002: Mona_Lisa_1
+    21300004: Mona_Lisa_2
+    21300006: Mona_Lisa_3
+    21300008: Mona_Lisa_4
+    21300010: Mona_Lisa_5
+    21300012: Mona_Lisa_6
+    21300014: Mona_Lisa_7
+    21300016: Mona_Lisa_8
+    21300018: Mona_Lisa_9
+    21300020: Mona_Lisa_10
+    21300022: Mona_Lisa_11
+    21300024: Mona_Lisa_12
+    21300026: Mona_Lisa_13
+    21300028: Mona_Lisa_14
+    21300030: Mona_Lisa_15
+    21300032: Mona_Lisa_16
+    21300034: Mona_Lisa_17
+    21300036: Mona_Lisa_18
+    21300038: Mona_Lisa_19
+    21300040: Mona_Lisa_20
+    21300042: Mona_Lisa_21
+    21300044: Mona_Lisa_22
+    21300046: Mona_Lisa_23
+    21300048: Mona_Lisa_24
+    21300050: Mona_Lisa_25
+    21300052: Mona_Lisa_26
+    21300054: Mona_Lisa_27
+    21300056: Mona_Lisa_28
+    21300058: Mona_Lisa_29
+    21300060: Mona_Lisa_30
+    21300062: Mona_Lisa_31
+    21300064: Mona_Lisa_32
+    21300066: Mona_Lisa_33
+    21300068: Mona_Lisa_34
+    21300070: Mona_Lisa_35
+    21300072: Mona_Lisa_36
+    21300074: Mona_Lisa_37
+    21300076: Mona_Lisa_38
+    21300078: Mona_Lisa_39
+    21300080: Mona_Lisa_40
+    21300082: Mona_Lisa_41
+    21300084: Mona_Lisa_42
+    21300086: Mona_Lisa_43
+    21300088: Mona_Lisa_44
+    21300090: Mona_Lisa_45
+    21300092: Mona_Lisa_46
+    21300094: Mona_Lisa_47
+    21300096: Mona_Lisa_48
+    21300098: Mona_Lisa_49
+    21300100: Mona_Lisa_50
+    21300102: Mona_Lisa_51
+    21300104: Mona_Lisa_52
+    21300106: Mona_Lisa_53
+    21300108: Mona_Lisa_54
+    21300110: Mona_Lisa_55
+    21300112: Mona_Lisa_56
+    21300114: Mona_Lisa_57
+    21300116: Mona_Lisa_58
+    21300118: Mona_Lisa_59
+    21300120: Mona_Lisa_60
+    21300122: Mona_Lisa_61
+    21300124: Mona_Lisa_62
+    21300126: Mona_Lisa_63
+    21300128: Mona_Lisa_64
+    21300130: Mona_Lisa_65
+    21300132: Mona_Lisa_66
+    21300134: Mona_Lisa_67
+    21300136: Mona_Lisa_68
+    21300138: Mona_Lisa_69
+    21300140: Mona_Lisa_70
+    21300142: Mona_Lisa_71
+    21300144: Mona_Lisa_72
+    21300146: Mona_Lisa_73
+    21300148: Mona_Lisa_74
+    21300150: Mona_Lisa_75
+    21300152: Mona_Lisa_76
+    21300154: Mona_Lisa_77
+    21300156: Mona_Lisa_78
+    21300158: Mona_Lisa_79
+    21300160: Mona_Lisa_80
+    21300162: Mona_Lisa_81
+    21300164: Mona_Lisa_82
+    21300166: Mona_Lisa_83
+    21300168: Mona_Lisa_84
+    21300170: Mona_Lisa_85
+    21300172: Mona_Lisa_86
+    21300174: Mona_Lisa_87
+    21300176: Mona_Lisa_88
+    21300178: Mona_Lisa_89
+    21300180: Mona_Lisa_90
+    21300182: Mona_Lisa_91
+    21300184: Mona_Lisa_92
+    21300186: Mona_Lisa_93
+    21300188: Mona_Lisa_94
+    21300190: Mona_Lisa_95
+    21300192: Mona_Lisa_96
+    21300194: Mona_Lisa_97
+    21300196: Mona_Lisa_98
+    21300198: Mona_Lisa_99
+    21300200: Mona_Lisa_100
+    21300202: Mona_Lisa_101
+    21300204: Mona_Lisa_102
+    21300206: Mona_Lisa_103
+    21300208: Mona_Lisa_104
+    21300210: Mona_Lisa_105
+    21300212: Mona_Lisa_106
+    21300214: Mona_Lisa_107
+    21300216: Mona_Lisa_108
+    21300218: Mona_Lisa_109
+    21300220: Mona_Lisa_110
+    21300222: Mona_Lisa_111
+    21300224: Mona_Lisa_112
+    21300226: Mona_Lisa_113
+    21300228: Mona_Lisa_114
+    21300230: Mona_Lisa_115
+    21300232: Mona_Lisa_116
+    21300234: Mona_Lisa_117
+    21300236: Mona_Lisa_118
+    21300238: Mona_Lisa_119
+    21300240: Mona_Lisa_120
+    21300242: Mona_Lisa_121
+    21300244: Mona_Lisa_122
+    21300246: Mona_Lisa_123
+    21300248: Mona_Lisa_124
+    21300250: Mona_Lisa_125
+    21300252: Mona_Lisa_126
+    21300254: Mona_Lisa_127
+    21300256: Mona_Lisa_128
+    21300258: Mona_Lisa_129
+    21300260: Mona_Lisa_130
+    21300262: Mona_Lisa_131
+    21300264: Mona_Lisa_132
+    21300266: Mona_Lisa_133
+    21300268: Mona_Lisa_134
+    21300270: Mona_Lisa_135
+    21300272: Mona_Lisa_136
+    21300274: Mona_Lisa_137
+    21300276: Mona_Lisa_138
+    21300278: Mona_Lisa_139
+    21300280: Mona_Lisa_140
+    21300282: Mona_Lisa_141
+    21300284: Mona_Lisa_142
+    21300286: Mona_Lisa_143
+    21300288: Mona_Lisa_144
+    21300290: Mona_Lisa_145
+    21300292: Mona_Lisa_146
+    21300294: Mona_Lisa_147
+    21300296: Mona_Lisa_148
+    21300298: Mona_Lisa_149
+    21300300: Mona_Lisa_150
+    21300302: Mona_Lisa_151
+    21300304: Mona_Lisa_152
+    21300306: Mona_Lisa_153
+    21300308: Mona_Lisa_154
+    21300310: Mona_Lisa_155
+    21300312: Mona_Lisa_156
+    21300314: Mona_Lisa_157
+    21300316: Mona_Lisa_158
+    21300318: Mona_Lisa_159
+    21300320: Mona_Lisa_160
+    21300322: Mona_Lisa_161
+    21300324: Mona_Lisa_162
+    21300326: Mona_Lisa_163
+    21300328: Mona_Lisa_164
+    21300330: Mona_Lisa_165
+    21300332: Mona_Lisa_166
+    21300334: Mona_Lisa_167
+    21300336: Mona_Lisa_168
+    21300338: Mona_Lisa_169
+    21300340: Mona_Lisa_170
+    21300342: Mona_Lisa_171
+    21300344: Mona_Lisa_172
+    21300346: Mona_Lisa_173
+    21300348: Mona_Lisa_174
+    21300350: Mona_Lisa_175
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Mona_Lisa_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 3215
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_1
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 3215
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3215
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_3
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 3215
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2191
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 2191
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_6
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2191
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_7
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 2191
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1167
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_9
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1167
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_10
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1167
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_11
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 1167
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 143
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_13
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 143
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_14
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 143
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mona_Lisa_15
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 143
+        width: 670
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
