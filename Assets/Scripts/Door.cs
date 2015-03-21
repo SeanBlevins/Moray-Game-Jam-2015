@@ -5,7 +5,7 @@ using System.Collections;
 public class Door : MonoBehaviour
 {
 
-    public Color colour;
+    public platform.activateColorEnum colour;
     private List<character> nearbyPlayers;
     public Transform Exit;
 
@@ -21,13 +21,18 @@ public class Door : MonoBehaviour
 	// Update is called once per frame
     private void Update()
     {
-        List<character> results = nearbyPlayers.FindAll(item => item.curColor == colour);
-
+        Color tempColour = platform.dictionaryColour[colour];
+        List<character> results = nearbyPlayers.FindAll(item => item.curColor == tempColour);
+        if (GameManager.Instance.characters.Count != 0 && results.Count == 1)
+        {
+            results = GameManager.Instance.characters;
+        }
         foreach (character player in results)
         {
             if (Input.GetButtonDown("Player" + player.PlayerNum + "X"))
             {
                 ActivateDoor(results);
+
             }
         }
     }

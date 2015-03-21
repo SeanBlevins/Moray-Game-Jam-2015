@@ -61,11 +61,6 @@ public class AreaOfInfluence : MonoBehaviour {
                 //Combine colors
                 if (hit.collider.tag == "Player")
                 {
-                    GM.characters.Add(GetComponentInParent<character>());
-                    GM.colors.Add(curColor);
-                    GM.updateCharacters();
-                    GM.addToGroup(GetComponentInParent<character>());
-
                     //Combine colors
                     linkedCharacters.Add(colliderInfo.GetComponent<character>());
                     if (!GM.characters.Contains(GetComponentInParent<character>()))

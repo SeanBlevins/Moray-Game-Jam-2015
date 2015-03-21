@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+
 
 public class platform : MonoBehaviour {
 
@@ -15,6 +17,17 @@ public class platform : MonoBehaviour {
         WHITE
     }
 
+    public static Dictionary<activateColorEnum, Color> dictionaryColour = new Dictionary<activateColorEnum, Color>
+    {
+        {activateColorEnum.RED, Color.red},
+        {activateColorEnum.BLUE, Color.blue},
+        {activateColorEnum.YELLOW, Color.yellow},
+        {activateColorEnum.PURPLE, new Color(0.7f, 0f, 1f, 1f)},
+        {activateColorEnum.ORANGE, new Color(1f, 0.65f, 0f, 1f)},
+        {activateColorEnum.GREEN, Color.green},
+        {activateColorEnum.WHITE, Color.white}
+    };
+
     public bool active = false;    
     public Color activateColor;
 
@@ -23,36 +36,20 @@ public class platform : MonoBehaviour {
     public List<character> characters = new List<character>();
 
 	// Use this for initialization
-	void Start () {
-
-        switch (activateColorEn)
+	void Start ()
+	{
+        dictionaryColour = new Dictionary<activateColorEnum, Color>
         {
-            case activateColorEnum.RED:
-                activateColor = Color.red;
-                break;
-            case activateColorEnum.BLUE:
-                activateColor = Color.blue;
-                break;
-            case activateColorEnum.YELLOW:
-                activateColor = Color.yellow;
-                break;
-            case activateColorEnum.PURPLE:
-                activateColor = new Color(0.7f, 0f, 1f, 1f);
-                break;
-            case activateColorEnum.ORANGE:
-                activateColor = new Color(1f, 0.65f, 0f, 1f);
-                break;
-            case activateColorEnum.GREEN:
-                activateColor = Color.green;
-                break;
-            case activateColorEnum.WHITE:
-                activateColor = Color.white;
-                break;
-            default:
-                break;
-        }
-
-        GetComponent<Renderer>().material.color = activateColor;
+            {activateColorEnum.RED, Color.red},
+            {activateColorEnum.BLUE, Color.blue},
+            {activateColorEnum.YELLOW, Color.yellow},
+            {activateColorEnum.PURPLE, new Color(0.7f, 0f, 1f, 1f)},
+            {activateColorEnum.ORANGE, new Color(1f, 0.65f, 0f, 1f)},
+            {activateColorEnum.GREEN, Color.green},
+            {activateColorEnum.WHITE, Color.white}
+        };
+        
+        GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
         deactivatePlatform();
 	
 	}
