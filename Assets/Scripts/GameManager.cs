@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public List<Color> colors = new List<Color>();
     Color groupColor;
 
+    private LineRenderer line;
+
     public enum PrimaryColors
     {
         Red = 1,
@@ -39,12 +41,27 @@ public class GameManager : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {                	
+	void Start () {
+        line = GetComponent<LineRenderer>();        	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+	{
+        //print(characters.Count);
+	    //int index = 0;
+
+	    for (int x = 0; x < characters.Count; x++)
+	    {
+            line.SetPosition(x, characters[x].transform.position);
+            line.enabled = true;
+	    }
+
+	    if (characters.Count == 3)
+	    {
+            line.SetPosition(3, characters[0].transform.position);
+	    }
+	    
 	}
 
     public void addToGroup(character ch)
@@ -86,27 +103,16 @@ public class GameManager : MonoBehaviour {
 
     public void updateCharacters()
     {
-        print("Col Count      " + colors.Count);
-        print("Char Count     " + characters.Count);
-        foreach (var color in colors)
-        {
-            //print(color);
-            if (color.Equals(Color.yellow))
-            {
-                //print("Yellow");
-            }
-            else if (color.Equals(Color.blue))
-            {
-                //print("Blue");
-            }
-            else if (color.Equals(Color.red))
-            {
-                //print("Red");
-            }
-        }
+        line.SetVertexCount(characters.Count);
+        print(characters);
+        //print("Col Count      " + colors.Count);
+        //print("Char Count     " + characters.Count);
+        
         if(characters.Count == 3)
         {
             groupColor = Color.white;
+            line.SetVertexCount(characters.Count + 1);
+            
         }
         else
         {
@@ -133,5 +139,7 @@ public class GameManager : MonoBehaviour {
             character.curColor = groupColor;
             character.updateColor();
         }
+
+        line.SetColors(groupColor, groupColor);
     }
 }
