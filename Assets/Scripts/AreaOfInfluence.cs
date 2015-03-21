@@ -38,13 +38,13 @@ public class AreaOfInfluence : MonoBehaviour {
         if (colliderInfo.GetComponent<Collider>().tag == "PlatformTrigger")
         {
 
-            colliderInfo.GetComponentInParent<platform>().activatePlatform(curColor);            
+            colliderInfo.transform.parent.GetComponent<platform>().activatePlatform(curColor);
 
-            colliderInfo.GetComponentInParent<platform>().characters.Add(GetComponentInParent<character>());
+            colliderInfo.transform.parent.GetComponent<platform>().characters.Add(GetComponentInParent<character>());
 
-            colliderInfo.GetComponentInParent<platform>().checkConnections();
+            colliderInfo.transform.parent.GetComponent<platform>().checkConnections();
 
-            platforms.Add(colliderInfo.GetComponentInParent<platform>());
+            platforms.Add(colliderInfo.transform.parent.GetComponent<platform>());
         }
         
 

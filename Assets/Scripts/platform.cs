@@ -38,6 +38,7 @@ public class platform : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+	    activateColor = dictionaryColour[activateColorEn];
         GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
         deactivatePlatform();
 	}
