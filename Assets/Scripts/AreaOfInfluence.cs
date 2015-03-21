@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -36,6 +37,7 @@ public class AreaOfInfluence : MonoBehaviour {
     {
         if (colliderInfo.GetComponent<Collider>().tag == "PlatformTrigger")
         {
+
             colliderInfo.GetComponentInParent<platform>().activatePlatform(curColor);            
 
             colliderInfo.GetComponentInParent<platform>().characters.Add(GetComponentInParent<character>());
@@ -44,6 +46,7 @@ public class AreaOfInfluence : MonoBehaviour {
 
             platforms.Add(colliderInfo.GetComponentInParent<platform>());
         }
+        
 
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {

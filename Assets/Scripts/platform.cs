@@ -38,34 +38,13 @@ public class platform : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-        dictionaryColour = new Dictionary<activateColorEnum, Color>
-        {
-            {activateColorEnum.RED, Color.red},
-            {activateColorEnum.BLUE, Color.blue},
-            {activateColorEnum.YELLOW, Color.yellow},
-            {activateColorEnum.PURPLE, new Color(0.7f, 0f, 1f, 1f)},
-            {activateColorEnum.ORANGE, new Color(1f, 0.65f, 0f, 1f)},
-            {activateColorEnum.GREEN, Color.green},
-            {activateColorEnum.WHITE, Color.white}
-        };
-        
         GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
         deactivatePlatform();
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (active)
-        {
-            
-        }
-        else
-        {
-
-        }
-	
+        
 	}
 
     public void activatePlatform(Color col)
