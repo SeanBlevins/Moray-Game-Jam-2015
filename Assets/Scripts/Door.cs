@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-	    animator = transform.parent.GetComponent<Animator>();
+//	    animator = transform.parent.GetComponent<Animator>();
 	    nearbyPlayers = new List<character>();
 	}
 	

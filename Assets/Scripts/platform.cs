@@ -37,18 +37,8 @@ public class platform : MonoBehaviour {
 
 	// Use this for initialization
 	void Start ()
-	{
-        dictionaryColour = new Dictionary<activateColorEnum, Color>
-        {
-            {activateColorEnum.RED, Color.red},
-            {activateColorEnum.BLUE, Color.blue},
-            {activateColorEnum.YELLOW, Color.yellow},
-            {activateColorEnum.PURPLE, new Color(0.7f, 0f, 1f, 1f)},
-            {activateColorEnum.ORANGE, new Color(1f, 0.65f, 0f, 1f)},
-            {activateColorEnum.GREEN, Color.green},
-            {activateColorEnum.WHITE, Color.white}
-        };
-        
+	{   
+		activateColor =  dictionaryColour[activateColorEn];
         GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
         deactivatePlatform();
 	
@@ -71,12 +61,12 @@ public class platform : MonoBehaviour {
     public void activatePlatform(Color col)
     {
         
-        if (col.Equals(activateColor))
+		if (col.Equals(activateColor))
         {
             //print("ACTIVATE: " + col);
             active = true;
             GetComponent<BoxCollider>().enabled = true;
-            GetComponent<Renderer>().material.color = activateColor;
+            GetComponent<Renderer>().material.color = platform.dictionaryColour[activateColorEn];
             
             
         }
