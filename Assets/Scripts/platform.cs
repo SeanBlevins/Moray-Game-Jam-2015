@@ -36,9 +36,7 @@ public class platform : MonoBehaviour {
     public List<character> characters = new List<character>();
 
 	// Use this for initialization
-	void Start ()
-	{
-	    activateColor = dictionaryColour[activateColorEn];
+	activateColor = dictionaryColour[activateColorEn];
         GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
         deactivatePlatform();
 	}
@@ -51,12 +49,12 @@ public class platform : MonoBehaviour {
     public void activatePlatform(Color col)
     {
         
-        if (col.Equals(activateColor))
+		if (col.Equals(activateColor))
         {
             //print("ACTIVATE: " + col);
             active = true;
             GetComponent<BoxCollider>().enabled = true;
-            GetComponent<Renderer>().material.color = activateColor;
+            GetComponent<Renderer>().material.color = platform.dictionaryColour[activateColorEn];
             
             
         }
