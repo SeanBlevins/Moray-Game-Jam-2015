@@ -1,31 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AreaOfInfluence : MonoBehaviour {
 
     GameManager GM;
 
-    Color baseColor;
-    Color curColor;
-    platform curPlatform = null;
+    public Color baseColor;
+    public Color curColor;
 
-    ArrayList platforms = new ArrayList();
+    List<platform> platforms = new List<platform>();
+    List<character> linkedCharacters = new List<character>();
 
 	// Use this for initialization
 	void Start () {
 
         GM = GameManager.Instance;
 
-        baseColor = GetComponentInParent<character>().baseColor;
-        curColor = baseColor;
+        //baseColor = GetComponentInParent<character>().baseColor;
+        //curColor = baseColor;
 
-        GetComponent<SpriteRenderer>().color = curColor;
+        //<SpriteRenderer>().color = curColor;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void initColor(Color initColor)
+    {
+        baseColor = initColor;
+        curColor = baseColor;
+
+        GetComponent<SpriteRenderer>().color = curColor;
+    }
 
     void OnTriggerEnter(Collider colliderInfo)
     {
@@ -39,9 +48,15 @@ public class AreaOfInfluence : MonoBehaviour {
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
             //Combine colors
-            GM.characters.Add(GetComponentInParent<character>());
-            GM.colors.Add(curColor);
-            GM.updateCharacters();
+            linkedCharacters.Add(colliderInfo.GetComponent<character>());
+            if (!GM.characters.Contains(GetComponentInParent<character>()))
+            {
+                print(baseColor);
+                GM.characters.Add(GetComponentInParent<character>());
+                GM.colors.Add(baseColor);
+                GM.updateCharacters();
+            }
+            
             //GM.addToGroup(GetComponentInParent<character>());
         }
 
@@ -69,8 +84,16 @@ public class AreaOfInfluence : MonoBehaviour {
 
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
-            print("Break up");
-            GM.removeFromGroup(GetComponentInParent<character>());
+            print("Break link");
+            
+            linkedCharacters.Remove(colliderInfo.GetComponent<character>());
+
+            if (linkedCharacters.Count == 0)
+            {
+                print("Remove from group");
+                GM.removeFromGroup(GetComponentInParent<character>());
+                
+            }
             //GM.characters.Remove(GetComponentInParent<character>());
             //GM.colors.Remove(curColor);
             //GM.updateCharacters();
@@ -86,9 +109,8 @@ public class AreaOfInfluence : MonoBehaviour {
             curColor = newColor;
             GetComponent<SpriteRenderer>().color = curColor;
 
-            foreach (var item in platforms)
+            foreach (var platform in platforms)
             {
-                platform platform = (platform)item;
                 platform.activatePlatform(curColor);
             }
         }
