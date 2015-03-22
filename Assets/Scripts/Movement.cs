@@ -46,11 +46,15 @@ public class Movement : MonoBehaviour {
 		Debug.DrawLine (transform.position, transform.FindChild("GroundCheck").transform.position);
 		if (Physics.Raycast (ray, out hit,-transform.FindChild("GroundCheck").transform.localPosition.y,layerMask))
 		{
-			//print (hit.transform.tag);
+			//print("groundcheck " + hit.transform.tag);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
 
 			{
 				return true;
+			}
+			else
+			{
+                print("else " + hit.transform.tag);
 			}
 		}
 		return false;//Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
@@ -61,7 +65,7 @@ public class Movement : MonoBehaviour {
 		RaycastHit hit;
 		Ray ray = new Ray (transform.position, Vector3.up);
 		if (Physics.Raycast (ray, out hit, 0.5f,layerMask)) {
-			//print(hit.transform.name);
+			print("below " + hit.transform.tag);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
 			{
 				return true;

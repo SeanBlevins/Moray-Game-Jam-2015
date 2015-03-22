@@ -79,7 +79,7 @@ public class AreaOfInfluence : MonoBehaviour {
                 }
                 else
                 {
-                    //print(hit.collider.tag);
+                    print(hit.collider.tag);
                 }
             }
 

@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
         }
         foreach (character player in results)
         {
-            if (Input.GetButtonDown("Player" + player.PlayerNum + "X"))
+            if (Input.GetButtonDown("Player" + player.PlayerNum + "Y"))
             {
                 ActivateDoor(results);
 
