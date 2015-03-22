@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
 	public float jump = 2;
 	public string JoystickInput, AInput;
 	public Collider otherPlayer;
+	public LayerMask layerMask;
 	void Start () {
 		distToGround = collider.bounds.extents.y;
 		distToSide = collider.bounds.extents.x;
@@ -43,8 +44,9 @@ public class Movement : MonoBehaviour {
 		//print (transform.FindChild ("GroundCheck").transform.position);
 
 		Debug.DrawLine (transform.position, transform.FindChild("GroundCheck").transform.position);
-		if (Physics.Raycast (ray, out hit,-transform.FindChild("GroundCheck").transform.localPosition.y,9))
+		if (Physics.Raycast (ray, out hit,-transform.FindChild("GroundCheck").transform.localPosition.y,layerMask))
 		{
+			print(hit.transform.name);
 			//print (hit.transform.name);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
 
@@ -59,7 +61,7 @@ public class Movement : MonoBehaviour {
 	{
 		RaycastHit hit;
 		Ray ray = new Ray (transform.position, Vector3.up);
-		if (Physics.Raycast (ray, out hit, 0.5f,9)) {
+		if (Physics.Raycast (ray, out hit, 0.5f,layerMask)) {
 			print(hit.transform.name);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
 			{
