@@ -64,8 +64,10 @@ public class Movement : MonoBehaviour {
 	{
 		RaycastHit hit;
 		Ray ray = new Ray (transform.position, Vector3.up);
-		if (Physics.Raycast (ray, out hit, 0.5f,layerMask)) {
-			print("below " + hit.transform.tag);
+		Debug.DrawRay (transform.position,Vector3.up,Color.red, Mathf.Infinity);
+		if (Physics.Raycast (ray, out hit, 1.0f,layerMask))
+		{
+			//print("below " + hit.transform.tag);
 			if(hit.transform.tag == "Ground" || hit.transform.tag == "Platform")
 			{
 				return true;
