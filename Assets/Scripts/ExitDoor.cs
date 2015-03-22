@@ -5,6 +5,7 @@ using System.Collections;
 public class ExitDoor : MonoBehaviour {
 
     public List<character> nearbyPlayers;
+    public LayerMask mask;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +18,32 @@ public class ExitDoor : MonoBehaviour {
 	{
 	    if (nearbyPlayers.Find(item => item.curColor == Color.white))
 	    {
+            //print("complete level");
+	        //GameManager.Instance.CompleteLevel();
+	    }
+
+	    bool allWhite = true;
+
+	    if (nearbyPlayers.Count == 3)
+	    {
+            foreach (var playa in nearbyPlayers)
+	        {
+	            if (playa.curColor != Color.white)
+	            {
+	                allWhite = false;
+	                break;
+	            }
+	        }
+	    }
+	    else
+	    {
+	        allWhite = false;
+	    }
+
+	    if (allWhite)
+	    {
             print("complete level");
-	        GameManager.Instance.CompleteLevel();
+            GameManager.Instance.CompleteLevel();
 	    }
 	}
 
@@ -26,8 +51,8 @@ public class ExitDoor : MonoBehaviour {
     {
         print("trig enter");
         print(other.tag);
-        if (other.tag != "AreaTrigger") return;
-        character player = other.transform.parent.GetComponent<character>();
+        if (other.tag != "Player") return;
+        character player = other.GetComponent<character>();
         nearbyPlayers.Add(player);
     }
 
@@ -35,8 +60,8 @@ public class ExitDoor : MonoBehaviour {
     {
         print("trig exit");
         print(other.tag);
-        if (other.tag != "AreaTrigger") return;
-        character player = other.transform.parent.GetComponent<character>();
+        if (other.tag != "Player") return;
+        character player = other.GetComponent<character>();
         nearbyPlayers.Remove(player);
     }
 }

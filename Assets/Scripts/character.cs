@@ -54,7 +54,7 @@ public class character : MonoBehaviour {
 
         float rotation = childSprites[0].transform.rotation.y; ;
 	    float input = Input.GetAxis("Player" + PlayerNum + "Horizontal");
-	    print(input);
+	    //print(input);
         if (input > 0f)
         {
             isRight = true;
