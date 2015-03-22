@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour {
 	    {
 	        Destroy(gameObject);
 	    }
+
+	    CurrentLevel = 0;
 	}
 	
 	// Update is called once per frame
@@ -128,8 +130,8 @@ public class GameManager : MonoBehaviour {
     {
         if (CurrentLevel == Application.levelCount)
         {
-            CurrentLevel = 1;
-            Application.LoadLevel(1);
+            CurrentLevel = 0;
+            Application.LoadLevel(0);
         }
         else
         {

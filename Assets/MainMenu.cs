@@ -10,9 +10,10 @@ public class MainMenu : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetAxis("Player1Start") == 1.0f || Input.GetAxis("Player2Start") == 1.0f || Input.GetAxis("Player3Start") == 1.0f )
+	void FixedUpdate () {
+		if(Input.GetAxis("Player1Start") > 0f || Input.GetAxis("Player2Start") > 0f || Input.GetAxis("Player3Start") > 0f )
 		{
+            print("B");
 			Application.LoadLevel(levelIndex);
 		}
 	}

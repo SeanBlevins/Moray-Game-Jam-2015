@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
         }
         foreach (character player in results)
         {
-            if (Input.GetButtonDown("Player" + player.PlayerNum + "Y"))
+            if (Input.GetButtonDown("Player" + player.PlayerNum + "X"))
             {
                 ActivateDoor(results);
 				GetComponent<AudioSource>().PlayOneShot(teleporter);
