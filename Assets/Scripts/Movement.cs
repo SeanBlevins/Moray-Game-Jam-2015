@@ -33,8 +33,8 @@ public class Movement : MonoBehaviour {
 		transform.Translate (direction * speed * Time.deltaTime, jump * speed * Time.deltaTime, 0);
 	}
 	// Update is called once per frame
-	void Update () {
-		//Physics.IgnoreCollision (collider, otherPlayer);
+	void Update ()
+	{
 	}
 
 	bool IsGrounded()  

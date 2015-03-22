@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Collections;
 
 public class character : MonoBehaviour {
@@ -14,7 +15,7 @@ public class character : MonoBehaviour {
     public Color curColor;
     public int PlayerNum;
     public baseColorEnum baseColorEn;
-    
+    private SpriteRenderer[] childSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +35,8 @@ public class character : MonoBehaviour {
                 break;
         }
         
-        setColor();       
-	
+        setColor();
+	    childSprites = GetComponentsInChildren<SpriteRenderer>();
 	}
 
     private void setColor()
@@ -45,15 +46,33 @@ public class character : MonoBehaviour {
 
         GetComponentInChildren<AreaOfInfluence>().initColor(baseColor);
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    private bool isRight = false;
+	// Update is called once per frame
+    void FixedUpdate()
+    {
+
+        float rotation = childSprites[0].transform.rotation.y; ;
+	    float input = Input.GetAxis("Player" + PlayerNum + "Horizontal");
+	    print(input);
+        if (input > 0f)
+        {
+            isRight = true;
+        }
+        else if (input < 0f)
+        {
+            isRight = false;
+        }
+	    foreach (SpriteRenderer sprite in childSprites)
+	    {
+
+	        sprite.transform.rotation = isRight ? Quaternion.Euler(0f, 180f, 0f) : Quaternion.Euler(0f, 0f, 0f);
+	    }
 	}
 
     public void updateColor()
     {
-        GetComponent<Renderer>().material.color = curColor;
+        //GetComponent<Renderer>().material.color = curColor;
         GetComponentInChildren<AreaOfInfluence>().changeColor(curColor);
     }
 
