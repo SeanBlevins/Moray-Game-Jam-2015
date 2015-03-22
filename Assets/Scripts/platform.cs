@@ -17,6 +17,9 @@ public class platform : MonoBehaviour {
         WHITE
     }
 
+    public SpriteRenderer spritePlatformColour;
+    private Animator animator;
+
     public static Dictionary<activateColorEnum, Color> dictionaryColour = new Dictionary<activateColorEnum, Color>
     {
         {activateColorEnum.RED, Color.red},
@@ -36,26 +39,16 @@ public class platform : MonoBehaviour {
     public List<character> characters = new List<character>();
 
 	// Use this for initialization
-	void Start ()
-	{   
-		activateColor =  dictionaryColour[activateColorEn];
-        GetComponent<Renderer>().material.color = dictionaryColour[activateColorEn];
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+	    activateColor = dictionaryColour[activateColorEn];
+        if(spritePlatformColour) spritePlatformColour.GetComponent<SpriteRenderer>().color = dictionaryColour[activateColorEn];
         deactivatePlatform();
-	
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (active)
-        {
-            
-        }
-        else
-        {
-
-        }
-	
 	}
 
     public void activatePlatform(Color col)
@@ -66,7 +59,7 @@ public class platform : MonoBehaviour {
             //print("ACTIVATE: " + col);
             active = true;
             GetComponent<BoxCollider>().enabled = true;
-            GetComponent<Renderer>().material.color = platform.dictionaryColour[activateColorEn];
+            //GetComponent<Renderer>().material.color = platform.dictionaryColour[activateColorEn];
             
             
         }
@@ -76,22 +69,24 @@ public class platform : MonoBehaviour {
             active = false;
             GetComponent<BoxCollider>().enabled = false;
             Color trans = new Color();
-            trans = GetComponent<Renderer>().material.color;
-            trans.a = 0.25f;
+            //trans = GetComponent<Renderer>().material.color;
+            //trans.a = 0.25f;
 
-            GetComponent<Renderer>().material.color = trans;
+            //GetComponent<Renderer>().material.color = trans;
         }
+        if(animator) animator.SetBool("Active", active);
     }
 
     public void deactivatePlatform()
     {       
         active = false;
         GetComponent<BoxCollider>().enabled = false;
-        Color trans = new Color();
-        trans = GetComponent<Renderer>().material.color;
-        trans.a = 0.25f;
+        //Color trans = new Color();
+        //trans = GetComponent<Renderer>().material.color;
+        //trans.a = 0.25f;
 
-        GetComponent<Renderer>().material.color = trans;
+        if (animator) animator.SetBool("Active", active);
+        //GetComponent<Renderer>().material.color = trans;
     }
 
     public void checkConnections()
