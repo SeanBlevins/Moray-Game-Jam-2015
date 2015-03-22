@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     public Transform Exit;
 
     private Animator animator;
+    public List<character> results = new List<character>();
 
 	// Use this for initialization
 	void Start ()
@@ -22,10 +23,14 @@ public class Door : MonoBehaviour
     private void Update()
     {
         Color tempColour = platform.dictionaryColour[colour];
-        List<character> results = nearbyPlayers.FindAll(item => item.curColor == tempColour);
-        if (GameManager.Instance.characters.Count != 0 && results.Count == 1)
+        results = nearbyPlayers.FindAll(item => item.curColor == tempColour);
+        if (results.Count > 0)
         {
-            results = GameManager.Instance.characters;
+            //check for merged colour friends not in range of tp
+            if (GameManager.Instance.characters.Contains(results[0]))
+            {
+                results = GameManager.Instance.characters;
+            }
         }
         foreach (character player in results)
         {
