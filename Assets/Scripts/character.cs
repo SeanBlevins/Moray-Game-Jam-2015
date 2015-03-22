@@ -33,14 +33,14 @@ public class character : MonoBehaviour {
             default:
                 break;
         }
-
+        
         setColor();       
 	
 	}
 
     private void setColor()
     {
-        GetComponent<Renderer>().material.color = baseColor;
+        //GetComponent<Renderer>().material.color = baseColor;
         curColor = baseColor;
 
         GetComponentInChildren<AreaOfInfluence>().initColor(baseColor);
