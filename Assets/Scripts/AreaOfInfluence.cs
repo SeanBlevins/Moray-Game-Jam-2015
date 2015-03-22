@@ -25,7 +25,6 @@ public class AreaOfInfluence : MonoBehaviour {
 	void Update () {
 
         transform.Rotate(Vector3.forward * -0.25f);
-
         
 	}
 
@@ -72,23 +71,18 @@ public class AreaOfInfluence : MonoBehaviour {
                     linkedCharacters.Add(thatChar);
                     if (!GM.characters.Contains(GetComponentInParent<character>()))
                     {
-                        print(baseColor);
+                        //print(baseColor);
                         GM.characters.Add(GetComponentInParent<character>());
                         GM.colors.Add(baseColor);
                         GM.updateCharacters();
                     }
                 }
-                else if (hit.collider.tag == "Platform")
-                {
-                    print("platform");
-                }
                 else
                 {
-                    print(hit.collider.tag);
+                    //print(hit.collider.tag);
                 }
             }
 
-            //GM.addToGroup(GetComponentInParent<character>());
         }
 
     }
@@ -135,6 +129,5 @@ public class AreaOfInfluence : MonoBehaviour {
                 platform.checkConnections();
             }
         }
-        //print(" ");
     }
 }
