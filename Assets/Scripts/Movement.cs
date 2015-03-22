@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[RequireComponent(typeof(AudioSource))]
 public class Movement : MonoBehaviour {
 	float speed = 10.00f;
 	float direction = 0.0f;
@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour {
 	public string JoystickInput, AInput;
 
     public LayerMask layerMask;
+	public AudioClip jumpOne, jumpTwo;
+
 	void Start () {
 		distToGround = collider.bounds.extents.y;
 		distToSide = collider.bounds.extents.x;
@@ -21,6 +23,11 @@ public class Movement : MonoBehaviour {
 		if (IsGrounded ()) {
 			jump = 0;
 			jump = Input.GetAxis (AInput) * 1.75f;
+			if(Input.GetAxis(AInput) >0)
+			{
+				GetComponent<AudioSource>().PlayOneShot(jumpOne,1.0f);
+			}
+
 		} else if (IsBelowPlatform ()) {
 			jump = 0 - 0.09f;
 
@@ -31,6 +38,7 @@ public class Movement : MonoBehaviour {
 		else jump = jump - 0.09f;
 
 		transform.Translate (direction * speed * Time.deltaTime, jump * speed * Time.deltaTime, 0);
+
 	}
 	// Update is called once per frame
 	void Update () {
@@ -64,7 +72,7 @@ public class Movement : MonoBehaviour {
 	{
 		RaycastHit hit;
 		Ray ray = new Ray (transform.position, Vector3.up);
-		Debug.DrawRay (transform.position,Vector3.up,Color.red, Mathf.Infinity);
+		//Debug.DrawRay (transform.position,Vector3.up,Color.red, Mathf.Infinity);
 		if (Physics.Raycast (ray, out hit, 1.0f,layerMask))
 		{
 			//print("below " + hit.transform.tag);

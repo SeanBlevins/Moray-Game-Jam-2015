@@ -53,7 +53,7 @@ public class character : MonoBehaviour {
 
     public void updateColor()
     {
-        GetComponent<Renderer>().material.color = curColor;
+       // GetComponent<Renderer>().material.color = curColor;				//TO DO FIX THIS
         GetComponentInChildren<AreaOfInfluence>().changeColor(curColor);
     }
 

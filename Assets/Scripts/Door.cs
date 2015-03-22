@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
 
     private Animator animator;
     public List<character> results = new List<character>();
-
+	public AudioClip teleporter;
 	// Use this for initialization
 	void Start ()
 	{
@@ -37,7 +37,7 @@ public class Door : MonoBehaviour
             if (Input.GetButtonDown("Player" + player.PlayerNum + "Y"))
             {
                 ActivateDoor(results);
-
+				GetComponent<AudioSource>().PlayOneShot(teleporter);
             }
         }
     }
