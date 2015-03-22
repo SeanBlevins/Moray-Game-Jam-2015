@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class AreaOfInfluence : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class AreaOfInfluence : MonoBehaviour {
     public Color curColor;
 
     List<platform> platforms = new List<platform>();
-    List<character> linkedCharacters = new List<character>();
+    public List<character> linkedCharacters = new List<character>();
     public LayerMask mask;
 
 	// Use this for initialization
@@ -22,7 +23,10 @@ public class AreaOfInfluence : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        transform.Rotate(Vector3.forward * -0.25f);
+
+        
 	}
 
     public void initColor(Color initColor)
@@ -52,6 +56,7 @@ public class AreaOfInfluence : MonoBehaviour {
             
             Collider thisParent = transform.parent.GetComponent<Collider>();
             Collider thatParent = colliderInfo.transform.parent.GetComponent<Collider>();
+            character thatChar = colliderInfo.transform.parent.GetComponent<character>();
             
             Ray ray = new Ray(thisParent.transform.position,
                 thatParent.transform.position - thisParent.transform.position);
@@ -64,7 +69,7 @@ public class AreaOfInfluence : MonoBehaviour {
                 if (hit.collider.tag == "Player")
                 {
                     //Combine colors
-                    linkedCharacters.Add(colliderInfo.GetComponent<character>());
+                    linkedCharacters.Add(thatChar);
                     if (!GM.characters.Contains(GetComponentInParent<character>()))
                     {
                         print(baseColor);
@@ -72,6 +77,14 @@ public class AreaOfInfluence : MonoBehaviour {
                         GM.colors.Add(baseColor);
                         GM.updateCharacters();
                     }
+                }
+                else if (hit.collider.tag == "Platform")
+                {
+                    print("platform");
+                }
+                else
+                {
+                    print(hit.collider.tag);
                 }
             }
 
@@ -94,8 +107,11 @@ public class AreaOfInfluence : MonoBehaviour {
         if (colliderInfo.GetComponent<Collider>().tag == "AreaTrigger")
         {
             //print("Break link");
-            
-            linkedCharacters.Remove(colliderInfo.GetComponent<character>());
+            character thatChar = colliderInfo.transform.parent.GetComponent<character>();
+
+            linkedCharacters.Remove(thatChar);
+            //LineRenderer colorLine = transform.parent.GetComponent<LineRenderer>();
+            //colorLine.enabled = false;
 
             if (linkedCharacters.Count == 0)
             {
