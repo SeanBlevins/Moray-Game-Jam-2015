@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
 	float distToGround, distToSide;
 	public float jump = 2;
 	public string JoystickInput, AInput;
-	public Collider otherPlayer;
+
     public LayerMask layerMask;
 	void Start () {
 		distToGround = collider.bounds.extents.y;
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		Physics.IgnoreCollision (collider, otherPlayer);
+		//Physics.IgnoreCollision (collider, otherPlayer);
 	}
 
 	bool IsGrounded()  

@@ -13,18 +13,10 @@ public class GameManager : MonoBehaviour {
     protected GameManager() { }
 
     public List<character> characters = new List<character>();
-    //ArrayList colors = new ArrayList();
     public List<Color> colors = new List<Color>();
     Color groupColor;
 
     private LineRenderer line;
-
-    public enum PrimaryColors
-    {
-        Red = 1,
-        Blue,
-        Green
-    }
 
     // Singleton pattern implementation
     public static GameManager Instance
@@ -48,8 +40,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        //print(characters.Count);
-	    //int index = 0;
 
 	    for (int x = 0; x < characters.Count; x++)
 	    {
@@ -70,29 +60,12 @@ public class GameManager : MonoBehaviour {
         characters.Add(ch);
         //print("Color     " + ch.baseColor);
         colors.Add(ch.baseColor);
-        //print("Col Count      " + colors.Count);
-        //print("Char Count     " + characters.Count);
-        if (colors.Contains(Color.red))
-        {
-            //print("Color red");
-        }
-        if (colors.Contains(Color.blue))
-        {
-            //print("Color blue");
-        }
-        if (colors.Contains(Color.red) && colors.Contains(Color.blue))
-        {
-            //print("Color red and blue");
-        }
+    
         updateCharacters();
     }
 
     public void removeFromGroup(character ch)
     {
-        
-
-        //print("Remove char: " + ch);
-        //print("Remove color: " + ch.baseColorEn);
         characters.Remove(ch);
         colors.Remove(ch.baseColor);
         updateCharacters();
@@ -104,9 +77,6 @@ public class GameManager : MonoBehaviour {
     public void updateCharacters()
     {
         line.SetVertexCount(characters.Count);
-        print(characters);
-        //print("Col Count      " + colors.Count);
-        //print("Char Count     " + characters.Count);
         
         if(characters.Count == 3)
         {

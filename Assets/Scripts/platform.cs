@@ -56,23 +56,16 @@ public class platform : MonoBehaviour {
         
 		if (col.Equals(activateColor))
         {
-            //print("ACTIVATE: " + col);
             active = true;
             GetComponent<BoxCollider>().enabled = true;
-            //GetComponent<Renderer>().material.color = platform.dictionaryColour[activateColorEn];
-            
             
         }
         else
         {
-            //print("DEACTIVATE: " + col);
+           
             active = false;
             GetComponent<BoxCollider>().enabled = false;
             Color trans = new Color();
-            //trans = GetComponent<Renderer>().material.color;
-            //trans.a = 0.25f;
-
-            //GetComponent<Renderer>().material.color = trans;
         }
         if(animator) animator.SetBool("Active", active);
     }
@@ -81,12 +74,9 @@ public class platform : MonoBehaviour {
     {       
         active = false;
         GetComponent<BoxCollider>().enabled = false;
-        //Color trans = new Color();
-        //trans = GetComponent<Renderer>().material.color;
-        //trans.a = 0.25f;
-
+        
         if (animator) animator.SetBool("Active", active);
-        //GetComponent<Renderer>().material.color = trans;
+       
     }
 
     public void checkConnections()
@@ -95,7 +85,6 @@ public class platform : MonoBehaviour {
         deactivatePlatform();
         foreach (var character in characters)
         {
-            //print(character);
             if (character.curColor == activateColor)
             {
                 active = true;
