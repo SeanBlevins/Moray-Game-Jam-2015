@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour {
 	//public GameState gameState { get; private set; }
     protected GameManager() { }
 
+    public int CurrentLevel;
     public List<character> characters = new List<character>();
     public List<Color> colors = new List<Color>();
+    
     Color groupColor;
 
     private LineRenderer line;
@@ -34,7 +36,16 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        line = GetComponent<LineRenderer>();        	
+        line = GetComponent<LineRenderer>();
+	    if (Application.loadedLevel == 0)
+	    {
+	        DontDestroyOnLoad(gameObject);
+	        Application.LoadLevel(1);
+	    }
+	    if (FindObjectsOfType<GameManager>().Length > 1)
+	    {
+	        Destroy(gameObject);
+	    }
 	}
 	
 	// Update is called once per frame
@@ -111,5 +122,19 @@ public class GameManager : MonoBehaviour {
         }
 
         line.SetColors(groupColor, groupColor);
+    }
+
+    internal void CompleteLevel()
+    {
+        if (CurrentLevel == Application.levelCount)
+        {
+            CurrentLevel = 1;
+            Application.LoadLevel(1);
+        }
+        else
+        {
+            CurrentLevel++;
+            Application.LoadLevel(CurrentLevel);
+        }
     }
 }

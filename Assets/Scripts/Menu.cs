@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour {
 	    if (ready1 && ready2 && ready3)
 	    {
 	        //LOAD GAME
-	        Application.LoadLevel("Tutorial");
+	        Application.LoadLevel(2);
 	    }
     }
 }
