@@ -72,7 +72,6 @@ public class character : MonoBehaviour {
 
     public void updateColor()
     {
-        //GetComponent<Renderer>().material.color = curColor;
         GetComponentInChildren<AreaOfInfluence>().changeColor(curColor);
     }
 

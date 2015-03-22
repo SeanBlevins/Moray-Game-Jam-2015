@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ExitDoor : MonoBehaviour {
 
-    private List<character> nearbyPlayers;
+    public List<character> nearbyPlayers;
 
 	// Use this for initialization
 	void Start () {
@@ -17,21 +17,26 @@ public class ExitDoor : MonoBehaviour {
 	{
 	    if (nearbyPlayers.Find(item => item.curColor == Color.white))
 	    {
+            print("complete level");
 	        GameManager.Instance.CompleteLevel();
 	    }
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player") return;
-        character player = other.GetComponent<character>();
+        print("trig enter");
+        print(other.tag);
+        if (other.tag != "AreaTrigger") return;
+        character player = other.transform.parent.GetComponent<character>();
         nearbyPlayers.Add(player);
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player") return;
-        character player = other.GetComponent<character>();
+        print("trig exit");
+        print(other.tag);
+        if (other.tag != "AreaTrigger") return;
+        character player = other.transform.parent.GetComponent<character>();
         nearbyPlayers.Remove(player);
     }
 }
