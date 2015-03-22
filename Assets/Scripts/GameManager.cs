@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
 	    if (Application.loadedLevel == 0)
 	    {
 	        DontDestroyOnLoad(gameObject);
-	        Application.LoadLevel(1);
+	        //Application.LoadLevel(1);
 	    }
 	    if (FindObjectsOfType<GameManager>().Length > 1)
 	    {
