@@ -39,15 +39,14 @@ public class GameManager : MonoBehaviour {
         line = GetComponent<LineRenderer>();
 	    if (Application.loadedLevel == 0)
 	    {
-	        DontDestroyOnLoad(gameObject);
-	        Application.LoadLevel(1);
+	        //DontDestroyOnLoad(gameObject);
+	        //Application.LoadLevel(1);
 	    }
 	    if (FindObjectsOfType<GameManager>().Length > 1)
 	    {
 	        Destroy(gameObject);
 	    }
 
-	    CurrentLevel = 0;
 	}
 	
 	// Update is called once per frame
