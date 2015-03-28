@@ -7,6 +7,8 @@ The aim of the game is to get all 3 players to the exit door of each level.
 
 ## Controls
 
+* Start : Enter key
+
 ##### Player 1 :
 * Left, Right : A, D
 * Jump : W
