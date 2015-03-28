@@ -17,7 +17,7 @@ Left, Right : H, K
 Jump : U
 Teleport : J
 
-Player 1 :
+Player 3 :
 Left, Right : Left, Right
 Jump : Up
 Teleport : Down
